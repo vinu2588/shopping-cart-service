@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: shopping-cart-service
+  
+  datasource:
+    url: jdbc:h2:mem:shoppingcartdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    com.ecommerce: DEBUG
+    org.springframework.web: INFO
+    org.hibernate: INFO
+
+# Business Configuration
+pricing:
+  individual:
+    high-end-phone: 1500.00
+    mid-range-phone: 800.00
+    laptop: 1200.00
+  professional:
+    high-revenue-threshold: 10000000.00
+    high-revenue:
+      high-end-phone: 1000.00
+      mid-range-phone: 550.00
+      laptop: 900.00
+    low-revenue:
+      high-end-phone: 1150.00
+      mid-range-phone: 600.00
+      laptop: 1000.00
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
